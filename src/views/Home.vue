@@ -66,8 +66,18 @@ export default {
      methods :{
 
           getdata () {
+                 let  selecetedname=this.selected;
+                 let  channel="";
+                 switch (selecetedname) {
+                       case 0:
+                       channel=encodeURI("头条");
+                       break;
+                   
+                 }
+                
 
-                this.$ajax.get("api/get?channel=%e5%a4%b4%e6%9d%a1&num=20&start=0&appkey=3dacf6c8db719ac1ce24eb8d290cd5d8").then((response) => {
+
+                this.$ajax.get("api/get?channel="+channel+"&num=20&start=0&appkey=3dacf6c8db719ac1ce24eb8d290cd5d8").then((response) => {
                          
        
                          return  this.datas=response.data.result.result.list
@@ -80,7 +90,8 @@ export default {
 
 
 
-          }
+          },
+           
 
 
 
